@@ -8,22 +8,10 @@
 # --------------------------------------------------------------------------------
 clear
 
-
-# Checking if user is root
-if [ "$(id -u)" != "0" ]; then
-	echo
-	echo "Sorry, this script must be run as root." 1>&2
-	echo
-	exit 1
-fi
-
-
-# Asking for the ruTorrent path folder
-read -p "Please type your ruTorrent path folder: " -e -i /var/www/rutorrent rutorrent_path
-
+rutorrent_path=/var/www/rutorrent
 
 # Installing dependencies
-apt-get install subversion zip
+apt-get install -y subversion zip unzip rar unrar
 
 cd /tmp
 
